@@ -9,6 +9,12 @@ class User(db.Model):
 
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
+    def pretty_print_user(self):
+        return 'Username: %s, name: %s' % (self.username, self.name)
+
+    def upper_name(self):
+        return self.name.upper()
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
